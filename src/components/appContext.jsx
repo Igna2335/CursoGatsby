@@ -4,11 +4,10 @@ import axios from 'axios';
 
 const ContextProvider = ({children}) => {
   
+  //Variables del contexto
     const [valor,setValor] = useState([]);
 
-     //Peticiones HTTP:
-
-
+  //Peticiones HTTP:
   useEffect(  () => {
     const peticion =  async () =>{
         const response = await axios.get('http://test.gicaor.com:8081/API_REST_PRUEBA/')
@@ -35,6 +34,7 @@ const ContextProvider = ({children}) => {
      <AppContext.Provider value = {initialValue}>{children}</AppContext.Provider>
   )
 }
+
 // GATSBY nos va a pasar "element"
 export default ({element}) => <ContextProvider>{element}</ContextProvider>
 
